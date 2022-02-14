@@ -1,8 +1,6 @@
 # Xraylib
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/xraylib`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem provides a [Ruby](https://www.ruby-lang.org) interface to [xraylib](https://github.com/tschoonj/xraylib) for the interaction of X-rays with matter, using [Fiddle](https://github.com/ruby/fiddle) instead of [SWIG](http://www.swig.org). 
 
 ## Installation
 
@@ -22,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+``` ruby
+require 'xraylib'
+include Xraylib
+
+puts "Atomic weight of C: #{atomic_weight(6)}"
+```
 
 ## Development
 
