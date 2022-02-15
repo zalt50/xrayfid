@@ -34,8 +34,6 @@ Gem::Specification.new do |spec|
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
 
-  spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", "~> 13.0"
   spec.add_dependency "fast_underscore", "~> 0.3"
 
   # For more information and examples about making a new gem, check out our
