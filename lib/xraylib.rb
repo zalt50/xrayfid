@@ -43,7 +43,7 @@ module Xraylib
       extern "double DCSPb_#{name}(int Z, double E, double theta, double phi, xrl_error **error);"
     end
 
-    extern "double CS_KN(double E, xrl_error **error);"
+    extern "double CS_Energy(int z, double E, xrl_error **error);"
   end
 
   AVOGNUM = 0.602214129   # Avogadro number (mol-1 * barn-1 * cm2)
@@ -93,4 +93,6 @@ module Xraylib
       Libxrl.send("DCSPb_#{name}", z, energy, theta, phi, nil)
     end
   end
+
+  def cs_energy(z, energy) = Libxrl.CS_Energy(z, energy, nil)
 end
