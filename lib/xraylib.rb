@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "xraylib/version"
+require_relative "xraylib/lines"
 require "fiddle/import"
 require "fast_underscore"
 
