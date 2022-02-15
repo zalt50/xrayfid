@@ -2,6 +2,7 @@
 
 require_relative "xraylib/version"
 require_relative "xraylib/lines"
+require_relative "xraylib/shells"
 require "fiddle/import"
 require "fast_underscore"
 
