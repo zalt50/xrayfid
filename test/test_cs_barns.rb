@@ -3,19 +3,77 @@
 require "test_helper"
 
 class TestXraylib < Minitest::Test
-  def test_cs_total_method
-    assert_equal 0.3717235309719578, Xraylib.cs_total(26, 100.0)
+  def test_ie_total
+    ie(:total, 26, 10.0)
   end
 
-  def test_cs_photo_method
-    assert_equal 0.20443433907301226, Xraylib.cs_photo(26, 100.0)
+  def test_ie_photo
+    ie(:photo, 26, 10.0)
   end
 
-  def test_cs_rayl_method
-    assert_equal 0.0376750946443608, Xraylib.cs_rayl(26, 100.0)
+  def test_ie_rayl
+    ie(:rayl, 26, 10.0)
   end
 
-  def test_cs_compt_method
-    assert_equal 0.12961409725458475, Xraylib.cs_compt(26, 100.0)
+  def test_ie_compt
+    ie(:compt, 26, 10.0)
+  end
+
+  def test_iie_fluor_line
+    iie(:fluor_line, 26, Xraylib::KL3_LINE, 10.0)
+  end
+
+  def test_iie_fluor_shell
+    iie(:fluor_shell, 26, Xraylib::K_SHELL, 10.0)
+  end
+
+  def test_iee_rayl
+    iee(:rayl, 26, 10.0, Math::PI / 4.0)
+  end
+
+  def test_iee_compt
+    iee(:compt, 26, 10.0, Math::PI / 4.0)
+  end
+
+  def test_ieee_rayl
+    ieee(:rayl, 26, 10.0, Math::PI / 4.0, Math::PI / 4.0)
+  end
+
+  def test_ieee_compt
+    ieee(:compt, 26, 10.0, Math::PI / 4.0, Math::PI / 4.0)
+  end
+
+  private
+
+  def ie(name, z, energy)
+    cs = Xraylib.send("cs_#{name}", z, energy)
+    assert 0.0 < cs
+    aw = Xraylib.atomic_weight(z)
+    assert 0.0 < aw
+    assert_equal cs * aw / Xraylib::AVOGNUM, Xraylib.send("csb_#{name}", z, energy)
+  end
+
+  def iie(name, z, line, energy)
+    cs = Xraylib.send("cs_#{name}", z, line, energy)
+    assert 0.0 < cs
+    aw = Xraylib.atomic_weight(z)
+    assert 0.0 < aw
+    assert_equal cs * aw / Xraylib::AVOGNUM, Xraylib.send("csb_#{name}", z, line, energy)
+  end
+
+  def iee(name, z, energy, theta)
+    cs = Xraylib.send("dcs_#{name}", z, energy, theta)
+    assert 0.0 < cs
+    aw = Xraylib.atomic_weight(z)
+    assert 0.0 < aw
+    assert_equal cs * aw / Xraylib::AVOGNUM, Xraylib.send("dcsb_#{name}", z, energy, theta)
+  end
+
+  def ieee(name, z, energy, theta, phi)
+    cs = Xraylib.send("dcsp_#{name}", z, energy, theta, phi)
+    assert 0.0 < cs
+    aw = Xraylib.atomic_weight(z)
+    assert 0.0 < aw
+    assert_equal cs * aw / Xraylib::AVOGNUM, Xraylib.send("dcspb_#{name}", z, energy, theta, phi)
   end
 end
