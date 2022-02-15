@@ -23,10 +23,9 @@ module Xraylib
     extern "double ElementDensity(int Z, xrl_error **error);"
 
     # Cross sections
-    extern "double CS_Total(int Z, double E, xrl_error **error);"
-    extern "double CS_Photo(int Z, double E, xrl_error **error);"
-    extern "double CS_Rayl(int Z, double E, xrl_error **error);"
-    extern "double CS_Compt(int Z, double E, xrl_error **error);"
+    %w[Total Photo Rayl Compt].each do |name|
+      extern "double CS_#{name}(int Z, double E, xrl_error **error);"
+    end
   end
 
   module_function
