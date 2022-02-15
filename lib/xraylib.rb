@@ -2,6 +2,7 @@
 
 require_relative "xraylib/version"
 require "fiddle/import"
+require "fast_underscore"
 
 module Xraylib
   class Error < StandardError; end
@@ -37,8 +38,9 @@ module Xraylib
   def element_density(z) = Libxrl.ElementDensity(z, nil)
 
   # Cross sections
-  def cs_total(z, energy) = Libxrl.CS_Total(z, energy, nil)
-  def cs_photo(z, energy) = Libxrl.CS_Photo(z, energy, nil)
-  def cs_rayl(z, energy) = Libxrl.CS_Rayl(z, energy, nil)
-  def cs_compt(z, energy) = Libxrl.CS_Compt(z, energy, nil)
+  Libxrl.singleton_methods.select { |sym| /^CS_/ =~ sym }.each do |sym|
+    define_method(sym.to_s.underscore) do |z, energy|
+      Libxrl.send(sym, z, energy, nil)
+    end
+  end
 end
