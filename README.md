@@ -1,4 +1,4 @@
-# Xraylib
+# Xraylib Ruby
 
 This gem provides a [Ruby](https://www.ruby-lang.org) interface to
 [xraylib](https://github.com/tschoonj/xraylib) for the interaction of
@@ -84,4 +84,4 @@ conduct](https://github.com/zalt50/xraylib-ruby/blob/main/CODE_OF_CONDUCT.md).
 - [A library for X-ray–matter interaction cross sections for X-ray
   fluorescence applications](https://doi.org/10.1016/j.sab.2004.03.014),
   Spectrochimica Acta Part B: Atomic Spectroscopy, Volume 59, Issues
-  10-11, 2003, pp. 1725-1731 2004
+  10-11, 2004, pp. 1725-1731
