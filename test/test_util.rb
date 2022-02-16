@@ -3,7 +3,7 @@
 require "test_helper"
 
 class TestXraylib < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::Xraylib::VERSION
+  def test_sizeof_error_code
+    assert 0 < ::Xraylib::Libxrl::SIZEOF_ERRORCODE
   end
 end

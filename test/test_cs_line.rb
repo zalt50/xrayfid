@@ -13,7 +13,9 @@ class TestXraylib < Minitest::Test
   end
 
   def test_cs_fluor_line_method_26
-    assert_equal 0.0, cs_fluor_line(26, L3M5_LINE, 10.0)
+    assert_raises XrlInvalidArgumentError do
+      cs_fluor_line(26, L3M5_LINE, 10.0)
+    end
     assert_in_delta 0.0200667, cs_fluor_line(26, L2M4_LINE, 10.0), 1e-6
     assert_in_delta 0.000830915, cs_fluor_line(26, L1M2_LINE, 10.0), 1e-6
 
@@ -39,8 +41,16 @@ class TestXraylib < Minitest::Test
        { line_lower: L2Q1_LINE, line_upper: L2L3_LINE, shell: L2_SHELL },
        { line_lower: L3Q1_LINE, line_upper: L3M1_LINE, shell: L3_SHELL }]
     line_mappings.each do |mapping|
-      rr = (mapping[:line_lower]..mapping[:line_upper]).map { |line| rad_rate(92, line) }.sum
-      cs = (mapping[:line_lower]..mapping[:line_upper]).map { |line| cs_fluor_line(92, line, 120.0) }.sum
+      rr = (mapping[:line_lower]..mapping[:line_upper]).map do |line|
+        rad_rate(92, line)
+      rescue XrlInvalidArgumentError
+        0.0
+      end.sum
+      cs = (mapping[:line_lower]..mapping[:line_upper]).map do |line|
+        cs_fluor_line(92, line, 120.0)
+      rescue XrlInvalidArgumentError
+        0.0
+      end.sum
       assert_in_delta cs, rr * cs_fluor_shell(92, mapping[:shell], 120.0), 1e-6
     end
   end

@@ -22,7 +22,9 @@ class TestXraylib < Minitest::Test
   end
 
   def test_cos_kron_trans_prob_method_11
-    assert_equal 0.0, cos_kron_trans_prob(11, FL12_TRANS)
+    assert_raises XrlInvalidArgumentError do
+      cos_kron_trans_prob(11, FL12_TRANS)
+    end
   end
 
   def test_cos_kron_trans_prob_method_109
@@ -30,21 +32,32 @@ class TestXraylib < Minitest::Test
   end
 
   def test_cos_kron_trans_prob_method_110
-    assert_equal 0.0, cos_kron_trans_prob(110, FL12_TRANS)
+    assert_raises XrlInvalidArgumentError do
+      cos_kron_trans_prob(110, FL12_TRANS)
+    end
   end
 
   def test_cos_kron_trans_prob_method_0
-    assert_equal 0.0, cos_kron_trans_prob(0, FL12_TRANS)
+    assert_raises XrlInvalidArgumentError do
+      cos_kron_trans_prob(0, FL12_TRANS)
+    end
   end
 
   def test_cos_kron_trans_prob_method_ZMAX
-    assert_equal 0.0, cos_kron_trans_prob(ZMAX + 1, FL12_TRANS)
+    assert_raises XrlInvalidArgumentError do
+      cos_kron_trans_prob(ZMAX + 1, FL12_TRANS)
+    end
   end
 
   def test_cos_kron_trans_prob_method_non_existent
-    assert_equal 0.0, cos_kron_trans_prob(26, 0)
+    assert_raises XrlInvalidArgumentError do
+      cos_kron_trans_prob(26, 0)
+    end
     assert 0.0 < cos_kron_trans_prob(92, FM45_TRANS)
-    assert_equal 0.0, cos_kron_trans_prob(92, FM45_TRANS + 1)
+
+    assert_raises XrlInvalidArgumentError do
+      cos_kron_trans_prob(92, FM45_TRANS + 1)
+    end
   end
 
   def test_cos_kron_trans_prob_method_internal_consistency

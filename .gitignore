@@ -1,11 +1,14 @@
 /.bundle/
+/.envrc
 /.yardoc
+/Gemfile.lock
+/_bin/
 /_yardoc/
 /coverage/
 /doc/
+/ext/util/.cache/
+/ext/util/compile_commands.json
+/lib/xraylib/util/
 /pkg/
 /spec/reports/
 /tmp/
-/Gemfile.lock
-/.envrc
-/_bin/

@@ -14,6 +14,8 @@ class TestXraylib < Minitest::Test
   end
 
   def test_atomic_weight_method_185
-    assert_equal 0.0, atomic_weight(185)
+    assert_raises XrlInvalidArgumentError do
+      atomic_weight(185)
+    end
   end
 end

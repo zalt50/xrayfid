@@ -18,10 +18,14 @@ class TestXraylib < Minitest::Test
   end
 
   def test_element_densitiy_method_0
-    assert_equal 0.0, element_density(0)
+    assert_raises XrlInvalidArgumentError do
+      element_density(0)
+    end
   end
 
   def test_element_densitiy_method_99
-    assert_equal 0.0, element_density(99)
+    assert_raises XrlInvalidArgumentError do
+      element_density(99)
+    end
   end
 end

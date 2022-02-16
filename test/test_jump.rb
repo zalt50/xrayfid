@@ -14,14 +14,20 @@ class TestXraylib < Minitest::Test
   end
 
   def test_jump_factor_method_neg_k
-    assert_equal 0.0, jump_factor(-35, K_SHELL)
+    assert_raises XrlInvalidArgumentError do
+      jump_factor(-35, K_SHELL)
+    end
   end
 
   def test_jump_factor_method_82_neg
-    assert_equal 0.0, jump_factor(82, -1)
+    assert_raises XrlInvalidArgumentError do
+      jump_factor(82, -1)
+    end
   end
 
   def test_jump_factor_method_26_n1
-    assert_equal 0.0, jump_factor(26, N1_SHELL)
+    assert_raises XrlInvalidArgumentError do
+      jump_factor(26, N1_SHELL)
+    end
   end
 end
