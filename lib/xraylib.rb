@@ -27,13 +27,13 @@ module Xraylib
 
   module_function
 
-  # Atomic weights
-  Libxrl.extern "double AtomicWeight(int Z, xrl_error **error);"
-  def atomic_weight(z) = Libxrl.AtomicWeight(z, nil)
-
-  # Element densities
-  Libxrl.extern "double ElementDensity(int Z, xrl_error **error);"
-  def element_density(z) = Libxrl.ElementDensity(z, nil)
+  # Atomic weights and element densities
+  %w[AtomicWeight ElementDensity].each do |name|
+    Libxrl.extern "double #{name}(int Z, xrl_error **error);"
+    define_method(name.underscore) do |z|
+      Libxrl.send(name, z, nil)
+    end
+  end
 
   # Cross sections
   %w[CS CSb].each do |prefix|
