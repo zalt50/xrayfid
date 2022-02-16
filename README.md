@@ -77,6 +77,9 @@ conduct](https://github.com/zalt50/xraylib-ruby/blob/main/CODE_OF_CONDUCT.md).
 
 ## ToDo
 
+- Support for all APIs in [the official
+  documentation](http://github.com/tschoonj/xraylib/wiki) of
+  [xraylib](https://github.com/tschoonj/xraylib)
 - Proper error handling
 
 ## Reference
