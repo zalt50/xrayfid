@@ -78,7 +78,7 @@ module Xraylib
   def cos_kron_trans_prob(z, trans) = Libxrl.CosKronTransProb(z, trans, nil)
 
   # Atomic level width, fluorescence yield and Auger yield
-  %w[AtomicLevelWidth AugerYield FluorYield].each do |name|
+  %w[AtomicLevelWidth AugerYield EdgeEnergy FluorYield JumpFactor].each do |name|
     Libxrl.extern "double #{name}(int Z, int shell, xrl_error **error);"
     define_method(name.underscore) do |z, shell|
       Libxrl.send(name, z, shell, nil)
