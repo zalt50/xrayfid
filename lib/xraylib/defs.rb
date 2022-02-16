@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+module Xraylib
+  ZMAX = 120
+  MENDEL_MAX = 107
+  CRYSTALARRAY_MAX = 512
+  MAXFILENAMESIZE = 1000
+  SHELLNUM = 28
+  SHELLNUM_K = 31
+  SHELLNUM_C = 29
+  LINENUM = 383
+  TRANSNUM = 15
+  AUGERNUM = 996
+  SHELLNUM_A = 9
+  N_NEW_CRYSTAL = 10
+end
