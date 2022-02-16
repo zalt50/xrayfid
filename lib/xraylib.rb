@@ -69,12 +69,15 @@ module Xraylib
   Libxrl.extern "double CS_Energy(int z, double E, xrl_error **error);"
   def cs_energy(z, energy) = Libxrl.CS_Energy(z, energy, nil)
 
+  # Fractional radiative rate
   Libxrl.extern "double RadRate(int Z, int line, xrl_error **error);"
   def rad_rate(z, line) = Libxrl.RadRate(z, line, nil)
 
+  # Coster-Kronig transition Probability
   Libxrl.extern "double CosKronTransProb(int Z, int trans, xrl_error **error);"
   def cos_kron_trans_prob(z, trans) = Libxrl.CosKronTransProb(z, trans, nil)
 
+  # Fluorescence yield and Auger yield
   %w[FluorYield AugerYield].each do |name|
     Libxrl.extern "double #{name}(int Z, int shell, xrl_error **error);"
     define_method(name.underscore) do |z, shell|
