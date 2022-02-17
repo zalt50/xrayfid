@@ -2,7 +2,7 @@
 
 require_relative "libxrl"
 
-module Xraylib
+module Xrayfid
   class XrlMemoryError < RuntimeError; end
   class XrlInvalidArgumentError < RuntimeError; end
   class XrlIOError < RuntimeError; end

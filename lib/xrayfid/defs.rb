@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Xraylib
+module Xrayfid
   ZMAX = 120
   MENDEL_MAX = 107
   CRYSTALARRAY_MAX = 512

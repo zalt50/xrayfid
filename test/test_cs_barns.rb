@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_ie_total
     ie(:total, 26, 10.0)

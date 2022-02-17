@@ -3,7 +3,7 @@
 require "fiddle/import"
 require "fast_underscore"
 
-module Xraylib
+module Xrayfid
   # Import xraylib functions from a shared library
   module Libxrl
     extend Fiddle::Importer

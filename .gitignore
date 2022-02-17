@@ -8,7 +8,7 @@
 /doc/
 /ext/util/.cache/
 /ext/util/compile_commands.json
-/lib/xraylib/util/
+/lib/xrayfid/util/
 /pkg/
 /spec/reports/
 /tmp/

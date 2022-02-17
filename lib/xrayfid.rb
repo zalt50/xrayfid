@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require_relative "xraylib/version"
+require_relative "xrayfid/version"
 
-require_relative "xraylib/const"
-require_relative "xraylib/defs"
-require_relative "xraylib/error"
-require_relative "xraylib/libxrl"
-require_relative "xraylib/lines"
-require_relative "xraylib/shells"
-require_relative "xraylib/trans"
-require_relative "xraylib/util"
+require_relative "xrayfid/const"
+require_relative "xrayfid/defs"
+require_relative "xrayfid/error"
+require_relative "xrayfid/libxrl"
+require_relative "xrayfid/lines"
+require_relative "xrayfid/shells"
+require_relative "xrayfid/trans"
+require_relative "xrayfid/util"
 
 require "fast_underscore"
 
 # Interface to xraylib for the interaction of X-rays with matter
-module Xraylib
+module Xrayfid
   class Error < StandardError; end
 
   module_function

@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_atomic_level_width_26
     assert_in_delta 1.19E-3, atomic_level_width(26, K_SHELL), 1e-6

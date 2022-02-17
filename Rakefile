@@ -12,7 +12,7 @@ end
 require "rake/extensiontask"
 
 Rake::ExtensionTask.new("util") do |ext|
-  ext.lib_dir = "lib/xraylib/util"
+  ext.lib_dir = "lib/xrayfid/util"
 end
 
 require "rubocop/rake_task"

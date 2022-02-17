@@ -1,4 +1,4 @@
-# Xraylib Ruby
+# Xrayfid
 
 This gem provides a [Ruby](https://www.ruby-lang.org) interface to
 [xraylib](https://github.com/tschoonj/xraylib) for the interaction of
@@ -10,7 +10,7 @@ instead of [SWIG](http://www.swig.org).
 Instal [xraylib](https://github.com/tschoonj/xraylib) once you have
 agreed to [the
 license](https://github.com/tschoonj/xraylib/blob/master/license_all.txt).
-If you’re using [Homebrew](https://brew.sh), The installation procedure
+If you’re using [Homebrew](https://brew.sh), the installation procedure
 is as follows:
 
 ``` sh
@@ -20,27 +20,27 @@ brew tschoonj/tap/xraylib
 Add this line to your application’s Gemfile:
 
 ``` ruby
-gem 'xraylib'
+gem 'xrayfid'
 ```
 
 And then execute:
 
 ``` sh
-bundle config build.xraylib --with-xraylib-include=[a path to the directory where xraylib.h is located]
+bundle config build.xrayfid --with-xraylib-include=[a path to the directory where xraylib.h is located]
 bundle install
 ```
 
 Or install it yourself as:
 
 ``` sh
-gem install xraylib  -- --with-xraylib-include=[a path to the directory where xraylib.h is located]
+gem install xrayfid  -- --with-xraylib-include=[a path to the directory where xraylib.h is located]
 ```
 
 ## Usage
 
 ``` ruby
-require 'xraylib'
-include Xraylib
+require 'xrayfid'
+include Xrayfid
 
 puts "Atomic weight of C: #{atomic_weight(6)}"
 ```
@@ -60,10 +60,10 @@ tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/zalt50/xraylib-ruby. This project is intended to be a
+https://github.com/zalt50/xrayfid. This project is intended to be a
 safe, welcoming space for collaboration, and contributors are expected
 to adhere to the [code of
-conduct](https://github.com/zalt50/xraylib-ruby/blob/main/CODE_OF_CONDUCT.md).
+conduct](https://github.com/zalt50/xrayfid/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -72,9 +72,9 @@ License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
-Everyone interacting in the Xraylib project’s codebases, issue trackers,
+Everyone interacting in the Xrayfid project’s codebases, issue trackers,
 chat rooms and mailing lists is expected to follow the [code of
-conduct](https://github.com/zalt50/xraylib-ruby/blob/main/CODE_OF_CONDUCT.md).
+conduct](https://github.com/zalt50/xrayfid/blob/main/CODE_OF_CONDUCT.md).
 
 ## ToDo
 

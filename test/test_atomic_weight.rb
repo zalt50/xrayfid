@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_atomic_weight_method_26
     assert_in_delta 55.850, atomic_weight(26), 1e-6

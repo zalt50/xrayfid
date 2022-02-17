@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
+class TestXrayfid < Minitest::Test
   def test_sizeof_error_code
-    assert 0 < ::Xraylib::Libxrl::SIZEOF_ERRORCODE
+    assert 0 < ::Xrayfid::Libxrl::SIZEOF_ERRORCODE
   end
 end

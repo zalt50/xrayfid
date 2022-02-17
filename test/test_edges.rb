@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_edge_energy_method_26
     assert_in_delta 7.112, edge_energy(26, K_SHELL), 1e-6

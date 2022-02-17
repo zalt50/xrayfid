@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_cs_photo_method
     assert_in_delta 11.451033638148562, cs_photo(10, 10.0), 1e-4

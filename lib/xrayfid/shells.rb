@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Xraylib
+module Xrayfid
   K_SHELL = 0
   L1_SHELL = 1
   L2_SHELL = 2

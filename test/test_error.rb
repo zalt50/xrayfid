@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_error_code
     error = Fiddle::Pointer.malloc(Fiddle::SIZEOF_INTPTR_T)

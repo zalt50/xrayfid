@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_cos_kron_trans_prob_method_92
     assert_in_delta 0.620, cos_kron_trans_prob(92, FL13_TRANS), 1e-6

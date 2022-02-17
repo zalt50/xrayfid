@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
+class TestXrayfid < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::Xraylib::VERSION
+    refute_nil ::Xrayfid::VERSION
   end
 end

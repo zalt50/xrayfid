@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/xraylib/version"
+require_relative "lib/xrayfid/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "xraylib"
-  spec.version = Xraylib::VERSION
+  spec.name = "xrayfid"
+  spec.version = Xrayfid::VERSION
   spec.authors = ["Takahiro SATOH"]
   spec.email = ["zalt50cc@gmail.com"]
 

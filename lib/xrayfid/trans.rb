@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Xraylib
+module Xrayfid
   FL12_TRANS = 1
   FL13_TRANS = 2
   FLP13_TRANS = 3

@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_jump_factor_method_82_k
     assert_in_delta 4.731, jump_factor(82, K_SHELL), 1e-6

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Xraylib
+module Xrayfid
   KA_LINE = 0
   KB_LINE = 1
   LA_LINE = 2

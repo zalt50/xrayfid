@@ -2,8 +2,8 @@
 
 require "test_helper"
 
-class TestXraylib < Minitest::Test
-  include Xraylib
+class TestXrayfid < Minitest::Test
+  include Xrayfid
 
   def test_cs_fluor_line_method_29
     assert_in_delta 0.13198670698075143, cs_fluor_line(29, L3M5_LINE, 10.0), 1e-6
