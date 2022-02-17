@@ -14,12 +14,5 @@ module Xrayfid
     rescue Fiddle::DLError
       dlload "#{ENV["HOMEBREW_PREFIX"]}/lib/#{lib_name}" if ENV["HOMEBREW_PREFIX"]
     end
-
-    ERROR_MEMORY           = 0
-    ERROR_INVALID_ARGUMENT = 1
-    ERROR_IO               = 2
-    ERROR_TYPE             = 3
-    ERROR_UNSUPPORTED      = 4
-    ERROR_RUNTIME          = 5
   end
 end

@@ -10,11 +10,24 @@ module Xrayfid
   class XrlUnsupportedError < RuntimeError; end
   class XrlRuntimeError < RuntimeError; end
 
+  module Libxrl
+    ERROR_MEMORY           = 0
+    ERROR_INVALID_ARGUMENT = 1
+    ERROR_IO               = 2
+    ERROR_TYPE             = 3
+    ERROR_UNSUPPORTED      = 4
+    ERROR_RUNTIME          = 5
+
+    extern "void xrl_error_free(xrl_error *error);"
+  end
+
   private
 
   def check_error(error)
     unless error.null?
-      case error[0, Libxrl::SIZEOF_ERRORCODE].unpack1("I!")
+      code = error[0, Libxrl::SIZEOF_ERRORCODE].unpack1("I!")
+      Libxrl.xrl_error_free(error)
+      case code
       when Libxrl::ERROR_MEMORY
         raise XrlMemoryError
       when Libxrl::ERROR_INVALID_ARGUMENT
