@@ -1,5 +1,4 @@
-#include "ruby.h"
-#include "xraylib.h"
+#include "util.h"
 
 void Init_util(void) {
   ID sym_mXrayfid = rb_intern("Xrayfid");

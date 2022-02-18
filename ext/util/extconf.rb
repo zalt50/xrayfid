@@ -3,4 +3,4 @@
 require "mkmf"
 
 dir_config("xraylib")
-create_makefile("util") if have_header("xraylib.h")
+create_makefile("xraylib/util") if have_header("xraylib.h")
