@@ -8,7 +8,7 @@ instead of [SWIG](http://www.swig.org).
 ## Installation
 
 Instal [xraylib](https://github.com/tschoonj/xraylib) once you have
-agreed to [the
+agreed to [its
 license](https://github.com/tschoonj/xraylib/blob/master/license_all.txt).
 If you’re using [Homebrew](https://brew.sh), the installation procedure
 is as follows:
@@ -69,6 +69,10 @@ conduct](https://github.com/zalt50/xrayfid/blob/main/CODE_OF_CONDUCT.md).
 
 The gem is available as open source under the terms of the [MIT
 License](https://opensource.org/licenses/MIT).
+
+Note: The use of [xraylib](https://github.com/tschoonj/xraylib) is
+subject to [its
+license](https://github.com/tschoonj/xraylib/blob/master/license_all.txt).
 
 ## Code of Conduct
 
