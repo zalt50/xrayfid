@@ -14,7 +14,7 @@ If you’re using [Homebrew](https://brew.sh), the installation procedure
 is as follows:
 
 ``` sh
-brew tschoonj/tap/xraylib
+brew install tschoonj/tap/xraylib
 ```
 
 Add this line to your application’s Gemfile:
