@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "error_messages"
 
 class TestXrayfid < Minitest::Test
   include Xrayfid
@@ -20,14 +21,18 @@ class TestXrayfid < Minitest::Test
   end
 
   def test_atomic_level_width_26_neg
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       atomic_level_width(26, -5)
     end
+
+    assert_equal UNKNOWN_SHELL, error.message
   end
 
   def test_atomic_level_width_26_n3
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       atomic_level_width(26, N3_SHELL)
     end
+
+    assert_equal INVALID_SHELL, error.message
   end
 end

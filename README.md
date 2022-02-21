@@ -26,14 +26,13 @@ gem 'xrayfid'
 And then execute:
 
 ``` sh
-bundle config build.xrayfid --with-xraylib-include=[a path to the directory where xraylib.h is located]
 bundle install
 ```
 
 Or install it yourself as:
 
 ``` sh
-gem install xrayfid  -- --with-xraylib-include=[a path to the directory where xraylib.h is located]
+gem install xrayfid
 ```
 
 ## Usage

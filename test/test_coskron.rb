@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "error_messages"
 
 class TestXrayfid < Minitest::Test
   include Xrayfid
@@ -22,9 +23,11 @@ class TestXrayfid < Minitest::Test
   end
 
   def test_cos_kron_trans_prob_method_11
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       cos_kron_trans_prob(11, FL12_TRANS)
     end
+
+    assert_equal INVALID_CK, error.message
   end
 
   def test_cos_kron_trans_prob_method_109
@@ -32,32 +35,43 @@ class TestXrayfid < Minitest::Test
   end
 
   def test_cos_kron_trans_prob_method_110
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       cos_kron_trans_prob(110, FL12_TRANS)
     end
+
+    assert_equal INVALID_CK, error.message
   end
 
   def test_cos_kron_trans_prob_method_0
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       cos_kron_trans_prob(0, FL12_TRANS)
     end
+
+    assert_equal Z_OUT_OF_RANGE, error.message
   end
 
   def test_cos_kron_trans_prob_method_ZMAX
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       cos_kron_trans_prob(ZMAX + 1, FL12_TRANS)
     end
+
+    assert_equal Z_OUT_OF_RANGE, error.message
   end
 
   def test_cos_kron_trans_prob_method_non_existent
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       cos_kron_trans_prob(26, 0)
     end
+
+    assert_equal UNKNOWN_CK, error.message
+
     assert 0.0 < cos_kron_trans_prob(92, FM45_TRANS)
 
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       cos_kron_trans_prob(92, FM45_TRANS + 1)
     end
+
+    assert_equal UNKNOWN_CK, error.message
   end
 
   def test_cos_kron_trans_prob_method_internal_consistency

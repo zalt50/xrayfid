@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "error_messages"
 
 class TestXrayfid < Minitest::Test
   include Xrayfid
@@ -26,5 +27,65 @@ class TestXrayfid < Minitest::Test
 
   def test_cs_energy
     assert_in_delta 11.420221747941419, cs_energy(10, 10.0), 1e-4
+  end
+
+  def test_cs_bad_z_neg
+    %i[cs_photo cs_compt cs_rayl cs_total cs_energy].each do |method|
+      error = assert_raises XrlInvalidArgumentError do
+        send(method, -1, 10.0)
+      end
+
+      assert_equal Z_OUT_OF_RANGE, error.message
+    end
+  end
+
+  def test_cs_bad_z_max
+    %i[cs_photo cs_compt cs_rayl cs_total cs_energy].each do |method|
+      error = assert_raises XrlInvalidArgumentError do
+        send(method, ZMAX, 10.0)
+      end
+
+      assert_equal Z_OUT_OF_RANGE, error.message
+    end
+  end
+
+  def test_cs_bad_energy_0
+    %i[cs_photo cs_compt cs_rayl cs_total cs_energy].each do |method|
+      error = assert_raises XrlInvalidArgumentError do
+        send(method, 26, 0.0)
+      end
+
+      assert_equal NEGATIVE_ENERGY, error.message
+    end
+  end
+
+  def test_cs_bad_energy_neg_1
+    %i[cs_photo cs_compt cs_rayl cs_total cs_energy].each do |method|
+      error = assert_raises XrlInvalidArgumentError do
+        send(method, 26, -1.0)
+      end
+
+      assert_equal NEGATIVE_ENERGY, error.message
+    end
+  end
+
+  def test_cs_bad_energy_max
+    { cs_photo: 1001, cs_compt: 801, cs_rayl: 801, cs_total: 801, cs_energy: 20_001 }.each do |method, max|
+      error = assert_raises XrlInvalidArgumentError do
+        send(method, 26, max)
+      end
+
+      assert_equal SPLINT_X_TOO_HIGH, error.message
+    end
+  end
+
+  def test_cs_bad_energy_min
+    { cs_photo: 0.09, cs_compt: 0.09, cs_rayl: 0.09, cs_total: 0.09, cs_energy: 0.9 }.each do |method, max|
+      error = assert_raises XrlInvalidArgumentError do
+        send(method, 26, max)
+      end
+
+      assert_equal SPLINT_X_TOO_LOW, error.message
+    end
   end
 end

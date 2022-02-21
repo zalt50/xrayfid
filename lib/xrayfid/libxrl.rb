@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "fiddle/import"
-require "fast_underscore"
 
 module Xrayfid
   # Import xraylib functions from a shared library

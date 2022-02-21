@@ -18,14 +18,18 @@ class TestXrayfid < Minitest::Test
   end
 
   def test_element_densitiy_method_0
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       element_density(0)
     end
+
+    assert_equal Z_OUT_OF_RANGE, error.message
   end
 
   def test_element_densitiy_method_99
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       element_density(99)
     end
+
+    assert_equal Z_OUT_OF_RANGE, error.message
   end
 end

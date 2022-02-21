@@ -9,12 +9,6 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/test_*.rb"]
 end
 
-require "rake/extensiontask"
-
-Rake::ExtensionTask.new("util") do |ext|
-  ext.lib_dir = "lib/xrayfid/util"
-end
-
 require "rubocop/rake_task"
 
 RuboCop::RakeTask.new

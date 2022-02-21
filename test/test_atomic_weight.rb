@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require "error_messages"
 
 class TestXrayfid < Minitest::Test
   include Xrayfid
@@ -14,8 +15,10 @@ class TestXrayfid < Minitest::Test
   end
 
   def test_atomic_weight_method_185
-    assert_raises XrlInvalidArgumentError do
+    error = assert_raises XrlInvalidArgumentError do
       atomic_weight(185)
     end
+
+    assert_equal Z_OUT_OF_RANGE, error.message
   end
 end
