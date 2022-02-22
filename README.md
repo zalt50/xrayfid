@@ -41,7 +41,13 @@ gem install xrayfid
 require 'xrayfid'
 include Xrayfid
 
-puts "Atomic weight of C: #{atomic_weight(6)}"
+# Atomic weights (z = 6)
+atomic_weight(6)
+# => 32.07
+
+# Cross sections [cm2/g] (z = 10, energy = 10.0 [keV])
+cs_total(10, 10.0)
+# => 11.967284888387404
 ```
 
 Note: if you receive an error message of
