@@ -10,15 +10,15 @@ Gem::Specification.new do |spec|
 
   spec.summary = "A Ruby interface to xraylib powered by Fiddle"
   spec.description = "This gem provides a Ruby interface to xraylib for the interaction of X-rays with matter, using Fiddle instead of SWIG."
-  spec.homepage = "https://github.com/zalt50/xraylib-ruby"
+  spec.homepage = "https://github.com/zalt50/xrayfid"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/zalt50/xraylib-ruby.git"
-  spec.metadata["changelog_uri"] = "https://raw.githubusercontent.com/zalt50/xraylib-ruby/master/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/zalt50/xrayfid.git"
+  spec.metadata["changelog_uri"] = "https://raw.githubusercontent.com/zalt50/xrayfid/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
