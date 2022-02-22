@@ -2,6 +2,7 @@
 
 require_relative "xrayfid/version"
 
+require_relative "xrayfid/auger"
 require_relative "xrayfid/const"
 require_relative "xrayfid/defs"
 require_relative "xrayfid/error"
@@ -79,11 +80,13 @@ module Xrayfid
   end
 
   # Fractional radiative rate
-  Libxrl.extern "double RadRate(int Z, int line, xrl_error **error);"
-  def rad_rate(z, line)
-    Fiddle::Pointer.malloc(Fiddle::SIZEOF_INTPTR_T, Fiddle::RUBY_FREE) do |error|
-      ret = Libxrl.RadRate(z, line, error)
-      ret unless error_exist?(error)
+  %w[LineEnergy RadRate].each do |name|
+    Libxrl.extern "double #{name}(int Z, int line, xrl_error **error);"
+    define_method(name.underscore) do |z, line|
+      Fiddle::Pointer.malloc(Fiddle::SIZEOF_INTPTR_T, Fiddle::RUBY_FREE) do |error|
+        ret = Libxrl.send(name, z, line, error)
+        ret unless error_exist?(error)
+      end
     end
   end
 
@@ -104,6 +107,15 @@ module Xrayfid
         ret = Libxrl.send(name, z, shell, error)
         ret unless error_exist?(error)
       end
+    end
+  end
+
+  # Auger non-radiative rates
+  Libxrl.extern "double AugerRate(int Z, int auger_trans, xrl_error **error);"
+  def auger_rate(z, auger_trans)
+    Fiddle::Pointer.malloc(Fiddle::SIZEOF_INTPTR_T, Fiddle::RUBY_FREE) do |error|
+      ret = Libxrl.AugerRate(z, auger_trans, error)
+      ret unless error_exist?(error)
     end
   end
 end
