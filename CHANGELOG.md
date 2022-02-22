@@ -7,6 +7,7 @@
 ### Added
 
 - Properly handling error message.
+- An environment variable XRAYLIB_DIR specifies the location of libxrl.
 
 ## 0.1.0 - 2022-02-17
 

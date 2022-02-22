@@ -44,6 +44,14 @@ include Xrayfid
 puts "Atomic weight of C: #{atomic_weight(6)}"
 ```
 
+Note: if you receive an error message of
+`image not found (Fiddle::DLError)`, set an environment variable
+`XRAYLIB_DIR` to specify the location of `libxrl`, e.g.
+
+``` sh
+export XRAYLIB_DIR=/opt/homebrew/opt/xraylib
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
