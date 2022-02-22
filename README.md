@@ -46,7 +46,7 @@ puts "Atomic weight of C: #{atomic_weight(6)}"
 
 Note: if you receive an error message of
 `image not found (Fiddle::DLError)`, set an environment variable
-`XRAYLIB_DIR` to specify the location of `libxrl`, e.g.
+`XRAYLIB_DIR` to specify the location of `lib/libxrl.(so|dylib)`, e.g.
 
 ``` sh
 export XRAYLIB_DIR=/opt/homebrew/opt/xraylib
