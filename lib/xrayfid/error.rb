@@ -22,7 +22,7 @@ module Xrayfid
     extern "void xrl_error_free(xrl_error *error);"
   end
 
-  private
+  module_function
 
   def error_exist?(error)
     return false if error.ptr.null?
