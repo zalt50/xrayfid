@@ -118,4 +118,27 @@ module Xrayfid
       ret unless error_exist?(error)
     end
   end
+
+  # Element symbol that coressponds with atomic number
+  Libxrl.extern "void xrlFree(void *);"
+  Libxrl.extern "char* AtomicNumberToSymbol(int Z, xrl_error **error);"
+  def atomic_number_to_symbol(z)
+    Fiddle::Pointer.malloc(Fiddle::SIZEOF_INTPTR_T, Fiddle::RUBY_FREE) do |error|
+      ret_ptr = Libxrl.AtomicNumberToSymbol(z, error)
+      unless error_exist?(error)
+        ret = ret_ptr.to_s
+        Libxrl.xrlFree(ret_ptr)
+        ret
+      end
+    end
+  end
+
+  # Atomic number that corresponds with element symbol
+  Libxrl.extern "int SymbolToAtomicNumber(const char *symbol, xrl_error **error);"
+  def symbol_to_atomic_number(symbol)
+    Fiddle::Pointer.malloc(Fiddle::SIZEOF_INTPTR_T, Fiddle::RUBY_FREE) do |error|
+      ret = Libxrl.SymbolToAtomicNumber(symbol, error)
+      ret unless error_exist?(error)
+    end
+  end
 end
